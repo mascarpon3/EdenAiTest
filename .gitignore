@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+Challenge - Full Stack Python 2.pdf
+*.sqlite3
+*__pycache__*
