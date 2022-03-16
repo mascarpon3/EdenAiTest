@@ -1,6 +1,15 @@
-from django.http import HttpResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from store.serializers import ProductSerializer, DiscountSerializer
 from django.shortcuts import render, get_object_or_404
 from store.models import Product
+
+
+class ProductsList(APIView):
+    def get(self, request, format=None):
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
 
 
 def index(request):
